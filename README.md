@@ -8,7 +8,7 @@ This is a curated version of the [CAUEEG Dataset](https://github.com/ipis-mjkim/
 - Labels were added to the participants.tsv file (normality_label column containing {"normal", "abnormal"} and the dementia_label column containing {"normal", "mci", "dementia", NaN}). Note that the normal vs abnormal classification used in the CAUEEG dataset is based on the clinical diagnosis information and indicates the absence of any clinical diagnoses. This is very different from the classification of EEG recordings as normal or abnormal as used in datasets like TUAB.
 - The official splits for the dementia (normal vs mci vs dementia) and normality (normal vs abnormal) prediction tasks were added to the participants.tsv file. Note that the authors provided two different splits for each task: one where some participants overlap between train, val and test splits and one where overlapping participants were removed from the validation and test data. Both versions were added in the columns \*_split and \*_split_no_overlap respectively.
 - Event information was extracted from the event json files. Most events, including eyes open/closed, photic stimulation, hyperventilation, as well as various annotations like eye blinks, sweating, drowsy, and artifacts were parsed, but some (e.g. for electrode impedance checks) were discarded. Note that inconsistencies between the json event files and corresponding edf data files were observed (events outside the duration of the data) for 199 files, so events may not be reliable.
-- Channel names and types were harmonised.
+- Channel names and types were harmonised and mapped to the new 10-20 nomenclature (T3 renamed to T7 etc.).
 - Channel locations were set from the standard 10-20 montage.
 
 
