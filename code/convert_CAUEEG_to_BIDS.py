@@ -253,7 +253,7 @@ def convert_caueeg_to_bids():
     id_to_dementia_split_no_overlap.update({e["serial"]: "val" for e in dementia_split_no_overlap["validation_split"]})
     id_to_dementia_split_no_overlap.update({e["serial"]: "test" for e in dementia_split_no_overlap["test_split"]})
 
-    participants_tsv["dementia_split_no_overlap"] = participants_tsv["participant_id"].map(dementia_split_no_overlap)
+    participants_tsv["dementia_split_no_overlap"] = participants_tsv["participant_id"].map(id_to_dementia_split_no_overlap)
 
 
     # Add split information for normality prediction (abnormal vs. normal)
