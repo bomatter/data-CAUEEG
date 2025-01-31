@@ -255,9 +255,6 @@ def convert_caueeg_to_bids():
 
     participants_tsv["dementia_split_no_overlap"] = participants_tsv["participant_id"].map(id_to_dementia_split_no_overlap)
 
-    # Add sub- prefix to participant_id to match the BIDS specification
-    participants_tsv["participant_id"] = "sub-" + participants_tsv["participant_id"]
-
 
     # Add split information for normality prediction (abnormal vs. normal)
     with open(sourcedata_dir / "abnormal.json") as f:
@@ -356,6 +353,8 @@ def convert_caueeg_to_bids():
             errors.append(error_msg)
             continue
 
+    # Add sub- prefix to participant_id to match the BIDS specification
+    participants_tsv["participant_id"] = "sub-" + participants_tsv["participant_id"]
 
     # Overwrite participants.tsv
     participants_tsv.to_csv(rawdata_dir / "participants.tsv", sep="\t", index=False)
